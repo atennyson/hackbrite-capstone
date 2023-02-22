@@ -14,7 +14,8 @@ while True:
     result = input("Would you like to save as a csv file? Y/N: ")
 
     if result.lower() == "y":
-        df.to_csv(r'~/Downloads/test.csv', index=False)
+        file_name = input("What would you like the file name to be? ")
+        df.to_csv(rf'~/Downloads/{file_name}', index=False)
 
     cont = input("Would you like to run another query? Y/N: ")
     if cont.lower() == "y":
