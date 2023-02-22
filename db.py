@@ -12,13 +12,13 @@ password = os.getenv("DBPASS")
 port = os.getenv("DBPORT")
 
 
-con = psycopg2.connect(f"dbname={name} user={user} password={password} port={port}")
+def make_connection(name, user, password, port):
+    con = psycopg2.connect(f"dbname={name} user={user} password={password} port={port}")
 
-cur = con.cursor()
+    return con
 
 
 def db_query(c, q):
     rows = pd.read_sql_query(q, c)
-    cur.close()
-    con.close()
+    c.close()
     return rows
