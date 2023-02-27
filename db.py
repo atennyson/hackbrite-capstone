@@ -3,14 +3,13 @@ import os
 import dotenv
 from sqlalchemy import create_engine
 
-
 dotenv.load_dotenv("secrets.env")
-
 host = os.getenv("DBHOST")
 name = os.getenv("DBNAME")
 user = os.getenv("DBUSER")
 password = os.getenv("DBPASS")
 port = os.getenv("DBPORT")
+
 
 
 def make_connection():
@@ -38,3 +37,5 @@ def db_query(con, query):
     rows = pd.read_sql_query(query, con)
     con.close()
     return rows
+
+
