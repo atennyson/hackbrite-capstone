@@ -13,15 +13,10 @@ password = os.getenv("DBPASS")
 port = os.getenv("DBPORT")
 
 
-def make_connection(host, name, user, password, port):
-    """Creates an engine object using a database connect string. Uses the connect() method on the engine object to create
-    an engine.connect object (connection to the database)
+def make_connection():
+    """Creates an engine object using a database connect string. Uses the connect() method on the engine object to
+    create an engine.connect object (connection to the database)
 
-    :param host: string - DBHOST env
-    :param name: string - DBNAME env
-    :param user: string - DBUSER env
-    :param password: string - DBPASS env
-    :param port: string - DBPORT env
     :return: engine.connect object - connection to the database
     """
 

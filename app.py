@@ -2,7 +2,7 @@ import db
 
 while True:
 
-    con = db.make_connection(db.host, db.name, db.user, db.password, db.port)
+    con = db.make_connection()
     query = input("Please submit a SQL query: ")
 
     rows = db.db_query(con, query)
