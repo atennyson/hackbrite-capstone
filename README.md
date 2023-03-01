@@ -12,9 +12,9 @@ DBPORT
 
 Store your database info into these variables as we will use these to build the connection string in ```make_connection```
 
-Alternatively when asked if you would like to use the default database or use your own, you can select to use your own and enter your database information on the command line.
+Alternatively when asked if you would like to use the default database or use your own, you can select to use your own and enter your database information on the command line. If you do not store anything into a secrets.env file, there will not be a default database.
 
-Upon execution of the program it will ask you to enter a SQL query, if invalid the program will error out and end (WIP). Upon entering your SQL query, as long
+Upon execution of the program it will ask you to enter a SQL SELECT query, if invalid the program will error out and end (WIP). Upon entering your SQL query, as long
 as the DB connection and query are valid, the tool will stdout the data you requested to the command line. It then will ask if you would like to save as a csv file.
 Either type Y for yes or N for no.
 
