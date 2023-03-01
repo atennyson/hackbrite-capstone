@@ -21,7 +21,7 @@ while True:
         db.port = os.getenv("DBPORT")
 
     con = db.make_connection()
-    query = input("Please submit a SQL query: ")
+    query = input("Please enter a SQL SELECT query: ")
 
     rows = db.db_query(con, query)
 
