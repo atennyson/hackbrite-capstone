@@ -4,14 +4,15 @@ while True:
 
     db_selection = input("Would you like to use the default database or use your own? ")
     if db_selection.lower() != "default":
-        host, name, user, password, port = db.use_own()
+        conn_string = db.use_own()
     else:
-        host, name, user, password, port = db.use_default()
+        conn_string = db.use_default()
 
-    con = db.make_connection(host, name, user, password, port)
+    database = db.Database(conn_string)
+    conn = database.make_connection()
     query = input("Please enter a SQL SELECT query: ")
 
-    rows = db.db_query(con, query)
+    rows = db.query(conn, query)
 
     print(rows)
 
@@ -31,4 +32,3 @@ while True:
 
     print("Thank you for your query, please restart me to make another one!")
     break
-
