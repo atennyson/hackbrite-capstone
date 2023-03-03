@@ -2,7 +2,7 @@ import pandas as pd
 import os
 import dotenv
 import maskpass
-from sqlalchemy import create_engine
+from sqlalchemy import sql, create_engine
 
 
 class Database:
@@ -31,7 +31,7 @@ def query(con, q):
     :param q: string - sql query from user input
     :return: Dataframe - Dataframe created from read_sql_query function from the pandas module
     """
-    rows = pd.read_sql_query(q, con)
+    rows = pd.read_sql_query(sql.text(q), con)
     con.close()
     return rows
 
