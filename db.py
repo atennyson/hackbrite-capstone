@@ -23,17 +23,28 @@ class Database:
         return conn
 
 
-def query(con, q):
+def select(conn, q):
     """
     Sends a query to the database and returns a Dataframe object
 
-    :param con: engine.connect object - same object returned from make_connection()
+    :param conn: engine.connect object - same object returned from make_connection()
     :param q: string - sql query from user input
     :return: Dataframe - Dataframe created from read_sql_query function from the pandas module
     """
-    rows = pd.read_sql_query(sql.text(q), con)
-    con.close()
+    rows = pd.read_sql_query(sql.text(q), conn)
+    conn.close()
     return rows
+
+
+def query(conn, q):
+    """
+    Executes an update, insert, or delete statement in a database
+
+    :param conn: engine.connect object - same object returned from make_connection()
+    :param q: string - sql query from user input
+    """
+    conn.execute(q)
+    conn.close()
 
 
 def use_default():
